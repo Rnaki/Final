@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Administrador</title>
+	<script src="JavaScript.js"></script>
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+  <link rel="stylesheet" type="text/css" href="css/materialize.css">
+</head>
+<body>
+  <div id="Top">
+    <img  id="gin" src="Login.png"  >
+    <div class="user">
+      <label>Administrador</label>
+      <button onclick="location.href='Login.html'"><img src="iconos/logout.png" width="25px" height="25px" /></button>
+    </div>
+    <button type="button" onclick="MostrarClienteAdministrador();">CLIENTE</button>
+    <button type="button" onclick="MostrarTrabajadorAdministrador();">TRABAJADOR</button>
+    <button type="button" onclick="MostrarProveedorAdministrador();">PROVEEDOR</button>
+  </div>
+  <br>
+  <!--Cliente Menu Administrador -->
+  <div id="ClienteAdmnistrador">
+	  <div class="ClienteAdmnistrador">
+      <input class="searchbar" type="text" placeholder="11.111.111-1" name="search">
+			<img  class="click_imagen" src="iconos/Lupa.png" width="20px" height="20px" href="javascript:void(0)" style="position:relative; top:-200px; background-color:white;" >
+			<div id="cont_table">
+        <table id="tabla">
+          <tr>
+            <th>Nombre Cliente</th>
+            <th>Opciones</th>
+            <tr>
+              <td onclick="toggle_visibility('ClienteEditarAdministrador');">Cliente 1</td>
+              <td>
+              <img src="iconos/trash.png" width="15" height="15" class="click_imagen"  onclick="alertaEliminar();">
+            </td>
+            </tr>
+            <tr><td onclick="toggle_visibility('ClienteEditarAdministrador');">Cliente 2</td>
+              <td>
+              <img src="iconos/trash.png" width="15" height="15" class="click_imagen"  onclick="alertaEliminar();">
+            </td>
+          </tr>
+          <tr><td onclick="toggle_visibility('ClienteEditarAdministrador');">Cliente 3</td>
+              <td>
+              <img src="iconos/trash.png" width="15" height="15" class="click_imagen"  onclick="alertaEliminar();">
+            </td>
+          </tr>
+          </tr>
+        </table>
+      </div>
+      <center>
+       <img class="click_imagen" src="iconos/Agregar.png" href="javascript:void(0)" onclick="toggle_visibility('ClienteAdministrador')"; />
+        <br>
+        <span class="TB"> 
+          Crear cliente
+        </span>
+      </center>
+    </div>
+  </div>
+  <!--Trabajador Menu Administrador-->
+  <div id="TrabajadorAdmnistrador">
+	  <div class="TrabajadorAdmnistrador">
+      <input class="searchbar" type="text" placeholder="11.111.111-1" name="search">
+      <img  class="lupa click_imagen"  src="iconos/Lupa.png" href="javascript:void(0)" >
+      <div id="cont_table">
+        <table id="tabla">
+          <tr>
+            <th>Nombre Trabajador</th>
+            <th>Opciones</th>
+            <tr>
+              <td onclick="toggle_visibility('TrabajadorEditarAdministrador');">Trabajador 1</td>
+              <td>
+              <img src="iconos/Carga.png" width="15" height="15" class="click_imagen"  onclick="toggle_visibility('popupBoxOnePositionCargaTrabajadorAdministrador');">
+              <img src="iconos/trash.png" width="15" height="15" class="click_imagen"  onclick="alertaEliminar();">
+            </td>
+            </tr>
+            <tr><td onclick="toggle_visibility('ClienteEditarAdministrador');">Trabajador 2</td>
+              <td>
+              <img src="iconos/Carga.png" width="15" height="15" class="click_imagen"  onclick="alertaEliminar();">
+              <img src="iconos/trash.png" width="15" height="15" class="click_imagen"  onclick="alertaEliminar();">
+            </td>
+          </tr>
+          <tr><td onclick="toggle_visibility('ClienteEditarAdministrador');">Trabajador 3</td>
+              <td>
+              <img src="iconos/Carga.png" width="15" height="15" class="click_imagen"  onclick="alertaEliminar();">
+             <img src="iconos/trash.png" width="15" height="15" class="click_imagen"  onclick="alertaEliminar();">          </td>
+          </tr>
+          </tr>
+        </table>
+      </div>
+      <center>
+        <button class="btn success" href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePositionTrabajadorAdministrador')";> Crear Trabajador</button>
+      </center>
+    </div>
+  </div>
+  <!--Proovedor Menu Administrador-->
+  <div id="ProveedorAdministrador">
+	  <div class="ProveedorAdministrador">
+      <input class="searchbar" type="text" placeholder="11.111.111-1" name="search">
+      <button class="searchbar" type="submit"><i class="fa fa-search"></i></button>
+        <div id="cont_table">
+          <table id="tabla">
+            <tr>
+              <th>Nombre Proveedor</th>
+              <th>Opciones</th>
+              <tr>
+                <td onclick="toggle_visibility('popupBoxOnePositionProveedorEditarAdministrador');">Proveedor 1</td>
+                <td>
+              
+                <img src="iconos/trash.png" width="15" height="15" class="click_imagen"  onclick="alertaEliminar();">
+              </td>
+              </tr>
+              <tr><td onclick="toggle_visibility('popupBoxOnePositionProveedorEditarAdministrador');">Proveedor 2</td>
+                <td>
+              
+                <img src="iconos/trash.png" width="15" height="15" class="click_imagen"  onclick="alertaEliminar();">
+              </td>
+            </tr>
+            <tr><td onclick="toggle_visibility('popupBoxOnePositionProveedorEditarAdministrador');">Proveedor 3</td>
+                <td>
+                
+               <img src="iconos/trash.png" width="15" height="15" class="click_imagen"  onclick="alertaEliminar();">          </td>
+            </tr>
+          </tr>
+        </table>
+      </div>
+      <center>
+        <button class="btn success" href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePositionProveedorAdministrador')";> Crear Proveedor</button>
+      </center>
+    </div>
+  </div>
+  <!--popup Crear cliente Administrador-->
+  <div id="ClienteAdministrador">
+    <div class="popupBoxWrapper">
+      <div class="popupBoxContent">
+        <div class="modal-content">
+          <span class="close" onclick="toggle_visibility('ClienteAdministrador')";>&times;</span>
+        </div>
+          <h6> CREACION O EDICION DE CLIENTE</h6><br>
+          <p class="pPopup">rut</p> <input type="text" value="11.111.111-1">
+          <p class="pPopup">Nombre</p> <input type="text" value="Juan">
+          <p class="pPopup">Apellido</p> <input type="text" value="Perez Pereira">
+          <p class="pPopup">Fono</p> <input type="text" value=" 999999999">
+          <p class="pPopup">Email</p> <input type="text" value="user@dominio.com">
+          <p class="pPopup">Banco</p> <input type="text" value="Santander">
+          <p class="pPopup">N º Banco</p> <input type="text" value="7777777777"><br>
+          <button class="btn success" href="javascript:void(0)" onclick="toggle_visibility('ClienteAdministrador')";> Crear cliente</button>
+      </div>
+    </div>
+  </div>
+  <!--Pop Up Editar Cliente Administrador-->
+  <div class="ClienteEditarAdministrador">
+    <div class="popupBoxWrapper">
+      <div class="popupBoxContent">
+        <div class="modal-content">
+          <span class="close" onclick="toggle_visibility('ClienteEditarAdministrador')";>&times;</span>
+        </div>
+          <h6>EDICION DE CLIENTE</h6><br>
+          <p class="pPopup">rut</p> <input type="text" value="11.111.111-1">
+          <p class="pPopup">Nombre</p> <input type="text" value="Juan">
+          <p class="pPopup">Apellido</p> <input type="text" value="Perez Pereira">
+          <p class="pPopup">Fono</p> <input type="text" value=" 999999999">
+          <p class="pPopup">Email</p> <input type="text" value="user@dominio.com">
+          <p class="pPopup">Banco</p> <input type="text" value="Santander">
+          <p class="pPopup">N º Banco</p> <input type="text" value="7777777777"><br>
+          <button class="btn editar" href="javascript:void(0)" onclick="toggle_visibility('ClienteEditarAdministrador')";> Editar</button>
+      </div>
+    </div>
+  </div>
+  <!--popup Trabajador Administrador-->
+  <div id="popupBoxOnePositionTrabajadorAdministrador">
+    <div class="popupBoxWrapper">
+      <div class="popupBoxContent">
+        <div class="modal-content">
+          <span class="close" onclick="toggle_visibility('popupBoxOnePositionTrabajadorAdministrador')";>&times;</span>
+        </div>
+        <h6> CREACION de Trabajador</h6><br>
+        <p>rut</p> <input type="text" value="11.111.111-1">
+        <p class="pPopup">Nombre</p> <input type="text" value="Juan">
+        <p class="pPopup">Apellido</p> <input type="text" value="Perez Pereira">
+        <p class="pPopup">Perfil</p> <input type="text" value=" Administrativo">
+        <p class="pPopup">Fono</p> <input type="text" value=" 999999999">
+        <p class="pPopup">Email</p> <input type="text" value="user@dominio.com">
+        <p class="pPopup">Banco</p> <input type="text" value="Santander">
+        <p class="pPopup">N º Banco</p> <input type="text" value="7777777777"><br>
+        <button class="btn success" href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePositionTrabajadorAdministrador')";> Crear cliente</button>
+      </div>
+    </div>
+  </div>
+  <!--popup Trabajador Administrador-->
+  <div id="TrabajadorEditarAdministrador">
+    <div class="popupBoxWrapper">
+      <div class="popupBoxContent">
+        <div class="modal-content">
+          <span class="close" onclick="toggle_visibility('TrabajadorEditarAdministrador')";>&times;</span>
+        </div>
+        <h6> Edicion de Trabajador</h6><br>
+        <p>rut</p> <input type="text" value="11.111.111-1">
+        <p class="pPopup">Nombre</p> <input type="text" value="Juan">
+        <p class="pPopup">Apellido</p> <input type="text" value="Perez Pereira">
+        <p class="pPopup">Perfil</p> <input type="text" value=" Administrativo">
+        <p class="pPopup">Fono</p> <input type="text" value=" 999999999">
+        <p class="pPopup">Email</p> <input type="text" value="user@dominio.com">
+        <p class="pPopup">Banco</p> <input type="text" value="Santander">
+        <p class="pPopup">N º Banco</p> <input type="text" value="7777777777"><br>
+        <button class="btn editar" href="javascript:void(0)" onclick="toggle_visibility('TrabajadorEditarAdministrador')";> Editar</button>
+      </div>
+    </div>
+  </div>
+  <!--popup Carga Trabajador Administrador-->
+  <div id="popupBoxOnePositionCargaTrabajadorAdministrador">
+    <div class="popupBoxWrapper">
+      <div class="popupBoxContent">
+        <span class="close" onclick="toggle_visibility('popupBoxOnePositionCargaTrabajadorAdministrador')";>&times;</span>
+        <h6> CREACION O EDICION DE Carga Familiar</h6><br>
+        <h6>Trabajador: Juan Perez</h6>
+        <p class="pPopup">rut</p> <input type="text" value="11.111.111-1">
+        <p class="pPopup">Nombre</p> <input type="text" value="Juan">
+        <p class="pPopup">Apellido</p> <input type="text" value="Perez Pereira">
+        <p class="pPopup">Fono</p> <input type="text" value=" 999999999">
+        <p class="pPopup">Parentesco</p> <input type="text" value="user@dominio.com">
+        <select name="cars" size="5">
+          <option value="Material 1">Carga1</option>
+          <option value="Material 2">Carga2</option>
+        </select>
+        <button class="btn success" href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePositionTrabajadorAdministrador'), toggle_visibility('popupBoxOnePositionCargaTrabajadorAdministrador')";> Crear Carga Familiar</button>
+        <button class="btn editar">Editar</button>
+        <button class="btn borrar">Eliminar</button>
+      </div>
+    </div>
+  </div>
+  <!--popup Proveedor Administrador-->
+  <div id="popupBoxOnePositionProveedorAdministrador">
+    <div class="popupBoxWrapper">
+      <div class="popupBoxContent">
+        <div class="modal-content">
+          <span class="close" onclick="toggle_visibility('popupBoxOnePositionProveedorAdministrador')";>&times;</span>
+        </div>
+        <h6> CREACION de Proveedor</h6><br>
+        <p class="pPopup">rut</p> <input type="text" value="11.111.111-1">
+        <p class="pPopup">Nombre</p> <input type="text" value="Juan">
+        <p class="pPopup">Apellido</p> <input type="text" value="Perez Pereira">
+        <p class="pPopup">Fono</p> <input type="text" value=" 999999999">
+        <p class="pPopup">Email</p> <input type="text" value="user@dominio.com">
+        <p class="pPopup">Banco</p> <input type="text" value="Santander">
+        <p class="pPopup">N º Banco</p> <input type="text" value="7777777777"><br>
+        <button class="btn success" href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePositionProveedorAdministrador')";> Crear cliente</button>
+      </div>
+    </div>
+  </div>
+    <!--popup Proveedor Administrador-->
+  <div id="popupBoxOnePositionProveedorEditarAdministrador">
+    <div class="popupBoxWrapper">
+      <div class="popupBoxContent">
+        <div class="modal-content">
+          <span class="close" onclick="toggle_visibility('popupBoxOnePositionProveedorEditarAdministrador')";>&times;</span>
+        </div>
+        <h6> Edicion de Proveedor</h6><br>
+        <p class="pPopup">rut</p> <input type="text" value="11.111.111-1">
+        <p class="pPopup">Nombre</p> <input type="text" value="Juan">
+        <p class="pPopup">Apellido</p> <input type="text" value="Perez Pereira">
+        <p class="pPopup">Fono</p> <input type="text" value=" 999999999">
+        <p class="pPopup">Email</p> <input type="text" value="user@dominio.com">
+        <p class="pPopup">Banco</p> <input type="text" value="Santander">
+        <p class="pPopup">N º Banco</p> <input type="text" value="7777777777"><br>
+        <button class="btn editar" href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePositionProveedorEditarAdministrador')";> Editar</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

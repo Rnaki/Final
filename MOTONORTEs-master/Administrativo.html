@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ADMINISTRATIVO</title>
+	<script src="js/JavaScript.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<link rel="stylesheet" type="text/css" href="css/materialize.css">
+</head>
+<body id="body-User">
+<!--Superior-->
+	<div id="Top">
+      <img  id="gin" src="Login.png"  >
+      <div class="user">
+        <label>T.Administrativo</label>
+        <button onclick="location.href='Login.html'"><img src="iconos/logout.png" width="25px" height="25px" /></button>
+      </div>
+      <button type="button" onclick="MostrarCliente();">CLIENTE</button>
+      <button type="button" onclick="MostrarInventario();">Inventario</button>
+    </div>
+	<br>
+	<div id="Cliente">
+	  	<div id="cont_table">
+		  	<table id="tabla">
+		  		<tr>
+		  			<th>Nombre Cliente</th>
+		  			<th>Opciones</th>
+		  			<tr>
+		  				<td onclick="toggle_visibility('EstadoVehiculo');">Cliente 1</td>
+		  				<td><img src="iconos/editar.png" width="15" height="15"class="click_imagen" href="javascript:void(0)" onclick="toggle_visibility('EdicionClientePopup');">
+							<img src="iconos/trash.png" width="15" height="15" class="click_imagen"  onclick="alertaEliminar();">
+							<img class="click_imagen" src="iconos/cars.png" width="15" height="15" href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition');">
+						</td>
+		  			</tr>
+		  			<tr><td onclick="toggle_visibility('EstadoVehiculo');">Cliente 2</td>
+		  				<td><img src="iconos/editar.png" width="15" height="15"class="click_imagen" href="javascript:void(0)" onclick="toggle_visibility('EdicionClientePopup');">
+							<img src="iconos/trash.png" width="15" height="15" class="click_imagen"  onclick="alertaEliminar();">
+							<img class="click_imagen" src="iconos/cars.png" width="15" height="15" href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition');">
+						</td>
+					</tr>
+					<tr><td onclick="toggle_visibility('EstadoVehiculo');">Cliente 3</td>
+		  				<td><img src="iconos/editar.png" width="15" height="15"class="click_imagen" href="javascript:void(0)" onclick="toggle_visibility('EdicionClientePopup');">
+							<img src="iconos/trash.png" width="15" height="15" class="click_imagen"  onclick="alertaEliminar();">
+							<img class="click_imagen" src="iconos/cars.png" width="15" height="15" href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition');">
+						</td>
+					</tr>
+		  		</tr>
+	  		</table>
+	    </div>
+		<input class="searchbar" type="text" placeholder="11.111.111-1" name="search" style="position:relative; top:-20px;>
+		<img  class="click_imagen" src="iconos/Lupa.png" width="20" height="20" href="javascript:void(0)" style="position:relative; top:-200px; background-color:white;" >
+		<center>
+           	<img  class="click_imagen" src="iconos/Agregar.png" width="30" height="30" href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePosition')";><br/><p style="color:white;">Agregar</p>
+		</center>
+	</div>
+	<!--Pop Up Creacion Cliente-->
+	<div id="popupBoxOnePosition" class="popupBoxWrapperpBoxOnePosition">
+		<div class="popupBoxWrapper">
+			<div class="popupBoxContent">
+				<div id="myModal" class="modal">
+				    <div class="modal-content">
+		    			<span class="close" onclick="toggle_visibility('popupBoxOnePosition')";>&times;</span>
+		  			</div>
+				</div>
+				<h6> CREACION O EDICION DE CLIENTE</h6><br>
+				<p class="pPopup">rut</p> <input type="text" value="11.111.111-1">
+				<p class="pPopup">Nombre</p> <input type="text" value="Juan">
+				<p class="pPopup">Apellido</p> <input type="text" value="Perez Pereira">
+				<p class="pPopup">Fono</p> <input type="text" value=" 999999999">
+				<p class="pPopup">Email</p> <input type="text" value="user@dominio.com">
+				<p class="pPopup">Banco</p> <input type="text" value="Santander">
+				<p class="pPopup">N º Banco</p> <input type="text" value="7777777777">
+				<br>
+				<br>
+				<br>
+				Agregar
+				<img  class="click_imagen" src="iconos/Agregar.png" width="30" height="30" href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePosition'), alertaCrear()" style="position:relative; right:-90%";>	
+			</div>
+		</div>
+	</div>
+	<!--Pop Up Edicion Cliente-->	
+	<div id="EdicionClientePopup" class="popupBoxWrapperpBoxOnePosition">
+		<div class="popupBoxWrapper">
+			<div class="popupBoxContent">
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<span class="close" onclick="toggle_visibility('EdicionClientePopup')";>&times;</span>
+					</div>
+				</div>
+				<h6> EDICION DE CLIENTE</h6><br>
+				<p class="pPopup">rut</p> <input type="text" value="11.111.111-1">
+				<p class="pPopup">Nombre</p> <input type="text" value="Juan">
+				<p class="pPopup">Apellido</p> <input type="text" value="Perez Pereira">
+				<p class="pPopup">Fono</p> <input type="text" value=" 999999999">
+				<p class="pPopup">Email</p> <input type="text" value="user@dominio.com">
+				<p class="pPopup">Banco</p> <input type="text" value="Santander">
+				<p class="pPopup">N º Banco</p> <input type="text" value="7777777777">
+				<br>
+				<br>
+				<br>
+				<button class="btn editar" href="javascript:void(0)" onclick="toggle_visibility('EdicionClientePopup'), alertaEditar()";>Editar</button>
+			</div>
+		</div>
+	</div>
+	<!--Pop Up Registro Vehiculo-->
+	<div id="popupBoxTwoPosition">
+		<div class="popupBoxWrapper">
+			<div class="popupBoxContent">
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<span class="close" onclick="toggle_visibility('popupBoxTwoPosition')";>&times;</span>
+					</div>
+				</div>
+				<h6> REGISTRO DE VEHICULO</h6><br>
+				<h3> CLIENTE: JUAN PEREZ </h3>
+				<p class="pPopup">TIPO</p> <input type="text" value="11.111.111-1">
+				<p class="pPopup">PATENTE</p> <input type="text" value="JP-55-44">
+				<p class="pPopup">MARCA</p> <input type="text" value="Mitsubishi">
+				<p class="pPopup">MODELO</p> <input type="text" value="">
+				<p class="pPopup">Nº MOTOR</p> <input type="text" value="">
+				<p class="pPopup">Nº CHASIS</p> <input type="text" value="">
+				<p class="pPopup">COLOR</p> <input type="text" value="">
+				<br>
+				<br>
+				<br>
+				<button class="btn success" href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition'), alertaCrear()";> Agregar Vehiculo</button>
+				<button class="btn editar" href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition'), alertaEditar()";>Editar</button>
+				<button class="btn borrar" href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition'), alertaEliminar()";>Eliminar</button>
+			</div>
+		</div>
+	</div>
+	<!--Pop Up Estado Vehiculo-->
+	<div id="EstadoVehiculo">
+		<div class="popupBoxWrapper">
+			<div class="popupBoxContent">
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<span class="close" onclick="toggle_visibility('EstadoVehiculo')";>&times;</span>
+					</div>
+				</div>
+				<h6>MENU CLIENTE</h6><br>
+				<h3> CLIENTE: JUAN PEREZ </h3>
+				<div id="VehiculoMenu1">
+					<p class="pPopup">VEHICULO RETIRO</p>
+					<select name="cars" size="5" id="VehiculoRetiro">
+						 <option value="Material 1">Item1</option>
+						 <option value="Material 2">Item2</option>
+						 <option value="Material 3">Item3</option>
+						 <option value="Material 4">Item4</option>
+					</select>
+			  	</div>
+				<div id="VehiculoMenu2">
+					<p class="pPopup">VEHICULO</p>
+					<select name="cars" size="5">
+						 <option value="Material 1">Item1</option>
+						 <option value="Material 2">Item2</option>
+						 <option value="Material 3">Item3</option>
+						 <option value="Material 4">Item4</option>
+					</select>
+				</div>
+				<br>
+				<button class="btn success" href="javascript:void(0)" onclick="toggle_visibility('EstadoVehiculo'), alertaRetiro()";>Retirar</button>
+				<button class="btn editar" href="javascript:void(0)" onclick="toggle_visibility('DiagnosticoVehiculo')";>Diagnostico</button>
+				<button class="btn borrar" href="javascript:void(0)" onclick="toggle_visibility('PresupuestoVehiculo')">Presupuesto</button></button>
+			</div>
+		</div>
+	</div>
+	<!--Pop up Diagnostico Vehiculo-->
+	<div id="DiagnosticoVehiculo">
+		<div class="popupBoxWrapper">
+			<div id="myModal" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="toggle_visibility('DiagnosticoVehiculo'), toggle_visibility('EstadoVehiculo')";>&times;</span>
+				</div>
+			</div>
+			<div class="popupBoxContent">
+			<h6>DIAGNOSTICO DE VEHICULO</h6><br>
+			<h3> CLIENTE: JUAN PEREZ </h3>
+			<p class="pPopup">
+			Patente
+			</p>
+			 <input type="text" name="usu">
+
+			<button class="btn success" href="javascript:void(0)" onclick="toggle_visibility('DiagnosticoVehiculo'), toggle_visibility('EstadoVehiculo'), alertaEnviado()";>Enviar a Diagnostico</button>
+			</div>
+		</div>
+	</div>
+	<!--Presupuesto Vehiculo-->
+	<div id="PresupuestoVehiculo">
+		<div class="popupBoxWrapper">
+			<div class="popupBoxContent">
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<span class="close" onclick="toggle_visibility('PresupuestoVehiculo'), toggle_visibility('EstadoVehiculo')";>&times;</span>
+					</div>
+				</div>
+				<h6>Presupuesto</h6><br>
+				<h3> CLIENTE: JUAN PEREZ </h3>
+				<p class="pPopup">
+				Patente
+				</p>
+				 <input type="text" name="usu">
+				 <textarea name="message" rows="10" cols="30">Observaciones.</textarea>
+				<button class="btn success" href="javascript:void(0)" onclick="toggle_visibility('PresupuestoVehiculo'), toggle_visibility('EstadoVehiculo'), alertaPresupuestoAceptado()";>Aceptar</button>
+				<button class="btn editar" onclick="toggle_visibility('PresupuestoVehiculo'), toggle_visibility('EstadoVehiculo'), alertaPresupuestoRechazado()";>Rechazar</button>
+			</div>
+		</div>
+	</div>
+	<!--Menu Inventario-->
+	<div id="Inventario" class="Inventario">
+		<button class="btnc1" onclick="MostrarCompra()">Comprar</button>
+		<button class="btnc2" onclick="MostrarStock()">Stock</button>
+	</div>
+	<!--Pantalla Compra-->
+	<div id="Compra" class="Compra">
+		<center>
+			<div class="grid-container">
+			    <div class="item1">
+			  		<h1 style="color:white;" color>COMPRAR</h1>
+			  	</div>
+			  	<div class="item2">
+	  				<input type="text" placeholder="Material" name="search">
+					<button type="submit"><img  class="click_imagen" src="iconos/Lupa.png" width="20" height="20" href="javascript:void(0)" style=" background-color:white;" ></button>
+			  	</div>
+			 	<div class="item3"></div>  
+			 	<div class="item4"></div>
+			 	<div class="item5">
+			  		<input type="text" placeholder="Proveedor" name="search">
+					<button type="submit"><img  class="click_imagen" src="iconos/Lupa.png" width="20" height="20" href="javascript:void(0)" style=" background-color:white;" ></button>
+				  	<select name="cars" size="5">
+						<option value="Material 1">Proveedor 1</option>
+						<option value="Material 2">Proveedor 2</option>
+						<option value="Material 3">Proveedor 3</option>
+						<option value="Material 4">Proveedor 4</option>
+					</select>
+			  	</div>
+			  	<div class="item6">
+				 	<select style="width:100%; height:100%;"name="cars" size="5">
+						<option value="Material 1">Item1</option>
+						<option value="Material 2">Item2</option>
+						<option value="Material 3">Item3</option>
+						<option value="Material 4">Item4</option>
+						<option value="Material 1">Item1</option>
+						<option value="Material 2">Item2</option>
+						<option value="Material 3">Item3</option>
+						<option value="Material 4">Item4</option>
+						<option value="Material 1">Item1</option>
+						<option value="Material 2">Item2</option>
+						<option value="Material 3">Item3</option>
+						<option value="Material 4">Item4</option>
+						<option value="Material 1">Item1</option>
+						<option value="Material 2">Item2</option>
+						<option value="Material 3">Item3</option>
+						<option value="Material 4">Item4</option>
+				  	</select>
+			  	</div>
+			  	<div>	
+			  		<button  class="btn editar" onclick="AgregarInventario()">Agregar-></button>
+			  	</div>
+			  	<div class="item8">
+			  		<select style="width:100%; height:100%;"name="cars" size="5">
+						<option value="Material 1">Item1</option>
+						<option value="Material 2">Item2</option>
+						<option value="Material 3">Item3</option>
+						<option value="Material 4">Item4</option>
+						<option value="Material 1">Item1</option>
+						<option value="Material 2">Item2</option>
+						<option value="Material 3">Item3</option>
+						<option value="Material 4">Item4</option>
+						<option value="Material 1">Item1</option>
+						<option value="Material 2">Item2</option>
+						<option value="Material 3">Item3</option>
+						<option value="Material 4">Item4</option>
+						<option value="Material 1">Item1</option>
+						<option value="Material 2">Item2</option>
+						<option value="Material 3">Item3</option>
+						<option value="Material 4">Item4</option>
+				  	</select>
+				</div>
+			  	<div>
+			  		<input type="number" id="cantidad" name="cantidad" value="1">
+			  	</div>
+			  	<div></div>
+			  	<div>
+			  		<button class="btn borrar" onclick="toggle_visibility('PresupuestoVehiculo2')">GENERAR OC</button>
+			  	</div>
+			  	<div>
+			  		<button  class="btn borrar" onclick="RemoverInventario()"><-Remover</button>
+			  	</div>
+			  	<div>
+		  			<textarea name="message" rows="1" cols="15">$</textarea>	
+		  		</div>
+			</div>
+		</center>
+	</div>
+	<!--Orden De Compra-->
+	<div id="PresupuestoVehiculo2">
+		<div class="popupBoxWrapper">
+			<div class="popupBoxContent">
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<span class="close" onclick="toggle_visibility('PresupuestoVehiculo2')";>&times;</span>
+					</div>
+				</div>
+				<h3> ORDEN DE COMPRA </h3>
+				<textarea name="message" rows="10" cols="30">Orden de Compra.</textarea>
+				<br>
+				<input type="checkbox" name="vehicle1" value="Bike">Imprimir
+
+				<input style="margin-left:0" type="checkbox" name="vehicle2" value="Car">Enviar Correo
+				<br>
+				<br>
+				<button class="btn success" href="javascript:void(0)" onclick="toggle_visibility('PresupuestoVehiculo2'), AlertaOrdenDeCompra()";>Enviar</button>
+				<br>
+			</div>
+		</div>
+	</div>
+	<!--Stock Pantalla-->
+	<div id="Stock" class="Stock">
+		<center>
+			<div class="grid-container2">
+			    <div class="item12">
+			  		<h1 style="color:white;" color>STOCK</h1>
+			    </div>
+			  	<div class="item22">
+	  				<input type="text" placeholder="Material" name="search">
+					<button type="submit"><img  class="click_imagen" src="iconos/Lupa.png" width="20" height="20" href="javascript:void(0)" style=" background-color:white;" ></button>
+			  	</div>
+			  	<div class="item32">
+			  	</div>  
+			  	<div class="item42"></div>
+			  	<div class="item52">
+			  		<input type="text" placeholder="Material" name="search">
+					<img  class="click_imagen" src="iconos/Lupa.png" width="20" height="20" href="javascript:void(0)" style="background-color:white;" >
+			  	</div>
+			  	<div class="item62">
+					<select style="width:100%; height:100%;"name="cars" size="5">
+						<option value="Material 1">Item1</option>
+						<option value="Material 2">Item2</option>
+						<option value="Material 3">Item3</option>
+						<option value="Material 4">Item4</option>
+						<option value="Material 1">Item1</option>
+						<option value="Material 2">Item2</option>
+						<option value="Material 3">Item3</option>
+						<option value="Material 4">Item4</option>
+						<option value="Material 1">Item1</option>
+						<option value="Material 2">Item2</option>
+						<option value="Material 3">Item3</option>
+						<option value="Material 4">Item4</option>
+						<option value="Material 1">Item1</option>
+						<option value="Material 2">Item2</option>
+						<option value="Material 3">Item3</option>
+						<option value="Material 4">Item4</option>
+				    </select>
+			    </div>
+			    <div>	
+			  		<input type="number" id="cantidad" name="cantidad" value="1">
+			    </div>
+			  	<div class="item82">
+				</div>
+			  	<div>
+			  		<input type="text" placeholder="Material" name="search">
+					<img  class="click_imagen" src="iconos/Lupa.png" width="20" height="20" href="javascript:void(0)" style="background-color:white;" >
+			  	</div>
+			  	<div>
+			  	</div>
+			  	<div>
+			  	</div>
+			  	<div>	
+			  	</div>
+			  	<div>		
+		  		</div>
+				<div>
+					<button class="btn editar" onclick="AgregarInventario(), toggle_visibility('AgregarStockVehiculo')";>Agregar Stock</button>
+				</div>
+				<div>
+					<button class="btn borrar" onclick="RemoverInventario()">Editar Stock</button>
+				</div>
+			</div>
+		</center>
+	</div>
+	<!--Pop UpAgregar Stock-->
+	<div id="AgregarStockVehiculo">
+		<div class="popupBoxWrapper">
+			<div id="myModal" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="toggle_visibility('DiagnosticoVehiculo'), toggle_visibility('EstadoVehiculo')";>&times;</span>
+				</div>
+			</div>
+			<div class="popupBoxContent">
+				<h6>DIAGNOSTICO DE VEHICULO</h6><br>
+				<h3> CLIENTE: JUAN PEREZ </h3>
+				<p class="pPopup">
+				Patente
+				</p>
+				<input type="text" name="usu">
+				<button class="btn success" href="javascript:void(0)" onclick="toggle_visibility('DiagnosticoVehiculo'), toggle_visibility('EstadoVehiculo'), alertaEnviado()";>Enviar a Diagnostico</button>
+			</div>
+		</div>
+	</div>
+</body>
